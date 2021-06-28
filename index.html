@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<title>MyHomePage</title>
 	</head>
-	<script type="text/javascript" src="js/openwindow.js"></script>
+	
 	<script type="text/javascript">
 		window.onload=function(){//否则找不着元素
 			var txt=document.getElementById("txt1");
@@ -13,7 +13,7 @@
 			var bing=document.getElementById("bing");
 			bing.onclick=function(){
 				txtvalue=txt.value;
-				openwindow('https://cn.bing.com/search?q='+txtvalue);
+				window.open('https://cn.bing.com/search?q='+txtvalue);
 				}
 			var google=document.getElementById("google");
 			google.onclick=function(){
@@ -161,13 +161,13 @@
 		<button type="button" class="search" id="bing">bing</button>
 		<button type="button" class="search" id="google">google</button>
 		<button type="button" class="search" id="baidu">baidu</button>
-		<button type="button" class="search" id="allsearch">全网搜🌐</button>
+		<button type="button" class="search" id="allsearch">全网搜🌐（手机无用）</button>
 		</div>
 		<div><br/><br/></div>娱乐区
 		<button type="button" class="play" id="bili">bilibili</button>
 		<button type="button" class="play" id="weibo">weibo</button>
 		<div><br/><br/></div>
-		<div class="block">摸鱼定时器
+		<div class="block">摸鱼定时器（手机无用）
 		<input type="time" id="settime" value="10:00" />
 		<button type="button" id="settimeconfirm">确认</button>
 		<div id="points" title="注意：点数系统采用localStorage方法，刷新或关闭页面不会导致点数重置，但我进行版本更新时，您的点数将重置为1000。"></div>
