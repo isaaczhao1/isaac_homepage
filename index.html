@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>MyHomePage</title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function(){//否则找不着元素
+			var txt=document.getElementById("txt1");
+			var txtvalue=txt.value;
+			//search events
+			var bing=document.getElementById("bing");
+			bing.onclick=function(){
+				txtvalue=txt.value;
+				window.open('https://cn.bing.com/search?q='+txtvalue);
+				}
+			var google=document.getElementById("google");
+			google.onclick=function(){
+				txtvalue=txt.value;
+				window.open('https://www.google.com/search?q='+txtvalue);
+				}
+			var baidu=document.getElementById("baidu");
+			baidu.onclick=function(){
+				txtvalue=txt.value;
+				window.open('https://www.baidu.com/s?wd='+txtvalue);
+				}
+			var allsearch=document.getElementById("allsearch");
+			allsearch.onclick=function(){
+				txtvalue=txt.value;
+				bing.click();
+				google.click();
+				baidu.click();
+				}
+			//play events
+			var bili=document.getElementById("bili");
+			bili.onclick=function(){
+				window.open('https://www.bilibili.com');
+				}
+			var weibo=document.getElementById("weibo");
+			weibo.onclick=function(){
+				window.open('https://weibo.com/u/7016009735/home?wvr=5&uut=fin&from=reg');
+				}
+			
+			//efficiency
+			
+			
+		    
+		     
+			
+			var fulltime_obj=document.getElementById("settime");
+			var time_confirm=document.getElementById("settimeconfirm");
+			
+			
+			
+			time_confirm.onclick=function(){
+				fulltime=fulltime_obj.value;
+				fulltime=parseInt(fulltime.split(':')[0])*60+parseInt(fulltime.split(':')[1]);
+				if (localStorage.playpoints>=fulltime) {
+					localStorage.playpoints = Number(localStorage.playpoints)-fulltime;
+					document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";
+					maxtime=fulltime;
+					timer = setInterval("CountDown()", 1000);//匿名函数要多一层括号,后来不用传参了,也不用匿名函数了
+				} else {
+				alert('账户余额不足');
+				document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";
+				}
+			}
+			
+			
+			//date
+			var date=new Date();
+			var today=String(date.getFullYear())+String(date.getMonth()+1)+String(date.getDate());
+			if(typeof localStorage.date_string!=typeof undefined){
+				
+				if(isNaN(localStorage.playpoints)){localStorage.playpoints=1000;document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";}
+				else{
+				if(localStorage.date_string!=today){localStorage.date_string=today;
+				localStorage.playpoints=Number(localStorage.playpoints)+1000;
+				document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";
+				
+				}
+				else{document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";}
+				}
+			}
+			else{localStorage.date_string=today;
+			localStorage.playpoints=1000;
+			document.getElementById("points").innerHTML = "剩余摸鱼点数：" + localStorage.playpoints + "";}
+			
+			
+			
+		}//以下不在window onload范围
+			
+			
+		 
+		//var fulltime=3;
+		var fulltime;
+		var maxtime=fulltime;//全局变量很重要!!!!
+		var bomb=0;
+		function CountDown() { 
+			if (maxtime >= 0) { 
+				minutes = Math.floor(maxtime / 60); 
+				seconds = Math.floor(maxtime % 60); 
+				if(seconds<10)seconds='0'+seconds;
+				msg = minutes + ":" + seconds; 
+				document.all["timer"].innerHTML = msg;
+				--maxtime;
+				} 
+				else{ 
+					
+					timer=window.clearInterval(timer);
+					bomb=1;
+					bombing();
+					}
+				}
+		
+		function bombing(){
+			if(bomb==1){
+			timer2=setInterval("openWin()",2000);
+			window.onclick=function(){
+				var cancel=window.prompt("请输入'123'来停止定时器轰炸");
+				if(cancel=='123'){
+					timer2=window.clearInterval(timer2);
+					bomb=0;
+					window.onclick=null;
+					}
+				}
+			   }
+		}
+		var mousex;
+		var mousey;
+		function openWin(){
+			myWindow=window.open('','摸鱼时间结束','width=400,height=400,top='+String(mousey-200)+',left='+String(mousex-200));
+			myWindow.document.write("<h1>别玩了哥</h1>");
+			myWindow.focus();
+			setTimeout("myWindow.close()",1000);
+			
+				}
+		document.onmousemove=function(event) {//在其他界面用不了
+			var e = event || window.event;
+			mousex=e.screenX; mousey=e.screenY;
+		}
+		
+		
+	</script>
+	
+	<body>
+		<div class="block">搜索
+		<textarea type="text" id="txt1" ></textarea>
+		<button type="button" class="search" id="bing">bing</button>
+		<button type="button" class="search" id="google">google</button>
+		<button type="button" class="search" id="baidu">baidu</button>
+		<button type="button" class="search" id="allsearch">全网搜🌐</button>
+		</div>
+		<div><br/><br/></div>娱乐区
+		<button type="button" class="play" id="bili">bilibili</button>
+		<button type="button" class="play" id="weibo">weibo</button>
+		<div><br/><br/></div>
+		<div class="block">摸鱼定时器
+		<input type="time" id="settime" value="00:03" />
+		<button type="button" id="settimeconfirm">确认</button>
+		<div id="points"></div>
+		<div id="timer"></div>
+		</div>
+	</body>
+</html>
