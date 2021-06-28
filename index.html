@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<title>MyHomePage</title>
 	</head>
+	<script type="text/javascript" src="js/openwindow.js"></script>
 	<script type="text/javascript">
 		window.onload=function(){//否则找不着元素
 			var txt=document.getElementById("txt1");
@@ -12,7 +13,7 @@
 			var bing=document.getElementById("bing");
 			bing.onclick=function(){
 				txtvalue=txt.value;
-				window.open('https://cn.bing.com/search?q='+txtvalue);
+				openwindow('https://cn.bing.com/search?q='+txtvalue);
 				}
 			var google=document.getElementById("google");
 			google.onclick=function(){
