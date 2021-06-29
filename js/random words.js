@@ -1,6 +1,7 @@
 		//必须在前面添加<script src="js/jquery.js"><////script>
 		//csv编码问题:在excel打开后,需要在"记事本"打开,另存为"utf8"编码
 		//html配合<div id="wordlist"></div>即可使用
+		//参考了https://blog.csdn.net/cunjie3951/article/details/106921644
 		$.ajax({
         url: 'docs/GREword.csv',
         dataType: 'text',
