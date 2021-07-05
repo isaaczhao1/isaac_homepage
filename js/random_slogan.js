@@ -1,7 +1,7 @@
 //配合jquery库
-//打开csv时务必通过记事本打开，否则编码将不再是utf8.挽救办法：重新在记事本里打开，另存为中修改编码
+//打开原文时务必通过记事本打开，否则编码将不再是utf8.挽救办法：重新在记事本里打开，另存为中修改编码
 $.ajax({
-        url: 'docs/名言.csv',
+        url: 'docs/名言.txt',
         dataType: 'text',
       }).done(successFunction1); 
 	  	
