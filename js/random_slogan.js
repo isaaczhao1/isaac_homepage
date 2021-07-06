@@ -6,7 +6,7 @@ $.ajax({
         dataType: 'text',
       }).done(successFunction1); 
 	  
-var slogan_changable=0;/* 手动调节slogan来源于txt文件或立即数（应为繁体字，以适配字库） */
+var slogan_changable=1;/* 手动调节slogan来源于txt文件或立即数（应为繁体字，以适配字库） */
 
 function successFunction1(data) {
 var allRows = data.split(/\r?\n|\r/);
