@@ -2,8 +2,18 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<!-- 兼容手机 -->
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		
 		<title>学习区属于是</title>
 	</head>
+	<script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.0.4/lib/L2Dwidget.min.js"></script><!-- 二刺螈 -->
+	<script type="text/javascript">
+		L2Dwidget.init();/* 二刺螈 */
+	</script>
 	<style type="text/css">
 		body{
 			background-image: url(img/bg_study.png);
@@ -16,6 +26,10 @@
 		}
 		a{
 			color: white;
+		}
+		canvas#live2dcanvas{
+			border: 0 !important;
+			height: 50% !important;
 		}
 	</style>
 	<body>
