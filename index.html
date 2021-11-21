@@ -12,20 +12,11 @@
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- 访问量 -->
 	<script src="js/cmd_run.js"></script>
 	<script type="text/javascript">
-		try {//打字机效果
-			var typed = new Typed("#typed", {
-			stringsElement:'#typed-strings'//字符串
-			//startDelay: 0,//开始的延迟
-			//typeSpeed: 200,//打字速度
-			//backSpeed: 100,//回退速度
-			//loop: true,//是否循环
-			//showCursor: true,//显示游标
-			//cursorChar: '_',
-			//shuffle: false//是否随机
-			});
-		} 
-		catch (err) {
-		}
+		
+  		var typed = new Typed('#typed', {
+			stringsElement: '#typed-strings'
+						});
+
 			
 		window.onload=function(){
 			var cmd_input=document.getElementById("cmd_input");
@@ -68,9 +59,10 @@
 	</style>
 	<body>
 		<div id="typed-strings">
-			<p>Isaac's site: enjoy life and science</p>
-		</div>
-		<span id="typed"></span>
+  <p>Typed.js is a <strong>JavaScript</strong> library.</p>
+  <p>It <em>types</em> out sentences.</p>
+</div>
+<span id="typed"></span>
 		
 		<span id="busuanzi_container_site_uv" title="Access from the same client within 24 hours is counted only once">
 		>>Welcome, you are the visitor No.<span id="busuanzi_value_site_uv"></span>
