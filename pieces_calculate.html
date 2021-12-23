@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+
+<title>多少份文件</title>
+</head>
+  <script>
+    window.onload=function(){
+      var button=document.getElementById("enter");
+      button.onclick=function(){
+      var startid=document.getElementById("startid");
+      var start=startid.value;
+      var endid=document.getElementById("endid");
+      var end=endid.value;
+      var result;
+        result=end-start+1;
+      
+      
+      var output=document.getElementById("results");
+      output.innerHTML="整数且首尾都算的时候，有"+result+"份";
+      }
+    }
+    </script>
+<body>
+	<h1>编号转份数</h1>
+  <div>起始编号<input type="text" id="startid"></div>
+	<div>结束编号<input type="text" id="endid"></div>
+  <button id="enter">确定</button>
+  <div id=results></div>
+</body>
+</html>
